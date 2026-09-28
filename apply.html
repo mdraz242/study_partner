@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply Now | Multi-Step Admission Form - Study Partners</title>
+  <meta name="description" content="Apply for accredited European university degrees in Belarus. Multi-step secure admissions form for African students. Fast Ministry invitation issuance.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Info Bar -->
+  <div class="top-notice-bar">
+    <div class="container top-notice-content">
+      <div class="top-notice-left">
+        <span class="top-notice-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Admissions Open &bull; 5 Premium Close, Mount Pleasant, Harare
+        </span>
+      </div>
+      <div class="top-notice-right">
+        <a href="tel:+263773966111" class="top-notice-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          +263 773 966 111
+        </a>
+        <a href="tel:+27833454421" class="top-notice-item">
+          +27 833 454 421
+        </a>
+        <a href="login.html" class="top-notice-item" style="color: var(--accent-emerald-700); font-weight: 700;">
+          Portal Login &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Navbar with Dropdowns -->
+  <nav class="navbar" id="siteNavbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo" aria-label="Study Partners Home">
+        <img src="images/logo.png" alt="Study Partners" class="brand-logo-img">
+      </a>
+
+      <!-- Desktop & Mobile Nav Menu -->
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="destinations.html" class="nav-link">Destinations</a>
+        </li>
+        <li class="nav-item">
+          <a href="degrees.html" class="nav-link">Degrees</a>
+        </li>
+        <li class="nav-item">
+          <a href="how-it-works.html" class="nav-link">How It Works</a>
+        </li>
+        <li class="nav-item">
+          <a href="pricing.html" class="nav-link">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a href="faq.html" class="nav-link">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a href="stories.html" class="nav-link">Student Stories</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="partner.html" class="nav-link" style="color: var(--sp-green); font-weight: 700;">Universities</a>
+        </li>
+      </ul>
+
+      <!-- Action CTAs -->
+      <div class="nav-actions">
+        <a href="apply.html" class="btn btn-primary active" id="navApplyBtn">Apply Now</a>
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="inner-hero-header">
+    <div class="container">
+      <span class="section-tag" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3);">Online Admission Portal</span>
+      <h1>European University Application Form</h1>
+      <p>Complete this 5-step application to receive your official eligibility assessment and study invitation letter.</p>
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> &rsaquo; <span>Apply Now</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Multi-step Application Form Wizard -->
+  <section class="section-padding" style="background: var(--neutral-50);">
+    <div class="container">
+      <div class="wizard-container">
+        
+        <!-- Wizard Header & Track -->
+        <div class="wizard-header">
+          <h2>Student Admission Dossier</h2>
+          <p style="color: var(--neutral-300); font-size: 0.9rem;">Follow the 5 progressive steps below to lodge your formal dossier.</p>
+
+          <div class="wizard-stepper-track">
+            <div class="wizard-track-line"></div>
+            <div class="wizard-track-progress" id="wizardProgressBar"></div>
+
+            <div class="wizard-step-node active" data-step="1">
+              <div class="wizard-step-circle">1</div>
+              <span class="wizard-step-label">Personal</span>
+            </div>
+
+            <div class="wizard-step-node" data-step="2">
+              <div class="wizard-step-circle">2</div>
+              <span class="wizard-step-label">Academic</span>
+            </div>
+
+            <div class="wizard-step-node" data-step="3">
+              <div class="wizard-step-circle">3</div>
+              <span class="wizard-step-label">Program</span>
+            </div>
+
+            <div class="wizard-step-node" data-step="4">
+              <div class="wizard-step-circle">4</div>
+              <span class="wizard-step-label">Documents</span>
+            </div>
+
+            <div class="wizard-step-node" data-step="5">
+              <div class="wizard-step-circle">5</div>
+              <span class="wizard-step-label">Submit</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wizard Form -->
+        <form id="multiStepApplyForm">
+          <div class="wizard-body">
+            
+            <!-- Step 1: Personal Information -->
+            <div class="wizard-step-panel active" data-step="1">
+              <h3 class="wizard-panel-title">Step 1: Personal & Identification Details</h3>
+              <p class="wizard-panel-subtitle">Enter your official details exactly as they appear on your international passport.</p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="appFullName">Full Legal Name (Surname First) *</label>
+                  <input type="text" id="appFullName" class="form-input" placeholder="e.g. ADELEKE Oluwaseun Michael" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="appEmail">Primary Email Address *</label>
+                  <input type="email" id="appEmail" class="form-input" placeholder="e.g. adeleke@example.com" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="appPhone">Phone / WhatsApp Number *</label>
+                  <input type="tel" id="appPhone" class="form-input" placeholder="+234 / +254 / +233..." required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="appDob">Date of Birth *</label>
+                  <input type="date" id="appDob" class="form-input" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="appNationality">Country of Citizenship / Origin *</label>
+                  <select id="appNationality" class="form-select" required>
+                    <option value="">Select nationality...</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Cameroon">Cameroon</option>
+                    <option value="Rwanda">Rwanda</option>
+                    <option value="Zimbabwe">Zimbabwe</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="Tanzania">Tanzania</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Other">Other African Country</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="appPassport">International Passport Number</label>
+                  <input type="text" id="appPassport" class="form-input" placeholder="e.g. A12345678 (or 'In Progress')">
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Academic Background -->
+            <div class="wizard-step-panel" data-step="2">
+              <h3 class="wizard-panel-title">Step 2: Academic Background & Qualifications</h3>
+              <p class="wizard-panel-subtitle">Provide details of your secondary school leaving certificate or tertiary qualifications.</p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="appHighestEdu">Highest Level of Completed Education *</label>
+                  <select id="appHighestEdu" class="form-select" required>
+                    <option value="WAEC / WASSCE">WAEC / WASSCE (West Africa)</option>
+                    <option value="NECO">NECO (Nigeria)</option>
+                    <option value="KCSE">KCSE (Kenya)</option>
+                    <option value="GCE A-Levels">GCE O / A-Levels</option>
+                    <option value="Baccalaureat">Baccalauréat (Francophone)</option>
+                    <option value="Bachelor Degree">Bachelor's Degree (For Master Applicants)</option>
+                    <option value="High School Senior">Currently in Final Year High School</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="appGradYear">Year of Graduation / Completion *</label>
+                  <input type="number" id="appGradYear" class="form-input" placeholder="e.g. 2024" min="2000" max="2027" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="appSchoolName">Name of Secondary School or University Attended *</label>
+                <input type="text" id="appSchoolName" class="form-input" placeholder="e.g. King's College Lagos / Alliance High School" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="appGradeGPA">Key Science / Math Grades or GPA *</label>
+                <input type="text" id="appGradeGPA" class="form-input" placeholder="e.g. English (B2), Math (B3), Biology (A1), Chemistry (B2)..." required>
+              </div>
+            </div>
+
+            <!-- Step 3: Program Choice -->
+            <div class="wizard-step-panel" data-step="3">
+              <h3 class="wizard-panel-title">Step 3: Program Choice & Target University</h3>
+              <p class="wizard-panel-subtitle">Choose your preferred academic destination, university, and intended degree program.</p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="appDestination">Study Destination *</label>
+                  <select id="appDestination" class="form-select" required>
+                    <option value="Belarus" selected>Republic of Belarus (Primary Destination)</option>
+                    <option value="Poland (Pre-reg)">Poland (Pre-registration)</option>
+                    <option value="Hungary (Pre-reg)">Hungary (Pre-registration)</option>
+                    <option value="Germany (Pre-reg)">Germany (Pre-registration)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="appLevel">Study Level *</label>
+                  <select id="appLevel" class="form-select" required>
+                    <option value="Undergraduate Bachelor's">Undergraduate (Bachelor / MBBS / BDS)</option>
+                    <option value="Postgraduate Master's">Postgraduate (Master's / MBA)</option>
+                    <option value="Preparatory Foundation">Preparatory / Language Foundation Year</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="appUniversity">Preferred European University *</label>
+                <select id="appUniversity" class="form-select" required>
+                  <option value="Belarusian State Medical University (BSMU)">Belarusian State Medical University (BSMU, Minsk)</option>
+                  <option value="Vitebsk State Medical University (VSMU)">Vitebsk State Medical University (VSMU, Vitebsk)</option>
+                  <option value="Grodno State Medical University">Grodno State Medical University (GrSMU, Grodno)</option>
+                  <option value="Belarusian State University of Informatics and Radioelectronics (BSUIR)">BSUIR - Computer Science & Tech (Minsk)</option>
+                  <option value="Belarusian National Technical University (BNTU)">BNTU - Engineering & Architecture (Minsk)</option>
+                  <option value="Belarusian State Economic University (BSEU)">BSEU - Business & Economics (Minsk)</option>
+                  <option value="Pre-University Language Department">Pre-University Faculty (Preparatory Year)</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="appProgram">Intended Degree Course *</label>
+                  <input type="text" id="appProgram" class="form-input" placeholder="e.g. General Medicine (MBBS) / Computer Science" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="appIntake">Starting Intake Semester *</label>
+                  <select id="appIntake" class="form-select" required>
+                    <option value="Fall Semester 2026 (September / October)">Fall Semester 2026 (September / October)</option>
+                    <option value="Spring Semester 2027 (February / March)">Spring Semester 2027 (February / March)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4: Document Upload -->
+            <div class="wizard-step-panel" data-step="4">
+              <h3 class="wizard-panel-title">Step 4: Supporting Document Upload</h3>
+              <p class="wizard-panel-subtitle">Attach digital scans or clear photos of your credentials for legal translation and evaluation.</p>
+
+              <!-- Upload 1: Passport -->
+              <div class="upload-box" onclick="document.querySelector('#filePassport').click();">
+                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+                <div style="font-weight: 700; color: var(--primary-900);">1. International Passport Data Page *</div>
+                <div style="font-size: 0.8rem; color: var(--neutral-500); margin-top: 0.25rem;">PDF, JPG, or PNG (Max 10MB)</div>
+                <div id="previewPassport" style="font-size: 0.8rem; color: var(--neutral-400); margin-top: 0.5rem;">Click or drag to attach passport scan</div>
+                <input type="file" id="filePassport" class="wizard-file-input" data-preview="previewPassport" accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+              </div>
+
+              <!-- Upload 2: Academic Transcripts -->
+              <div class="upload-box" onclick="document.querySelector('#fileTranscripts').click();">
+                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <div style="font-weight: 700; color: var(--primary-900);">2. Academic Certificates / Transcripts (WAEC/NECO/KCSE) *</div>
+                <div style="font-size: 0.8rem; color: var(--neutral-500); margin-top: 0.25rem;">Certificate or online result scratch card slip (PDF, JPG)</div>
+                <div id="previewTranscripts" style="font-size: 0.8rem; color: var(--neutral-400); margin-top: 0.5rem;">Click or drag to attach certificate</div>
+                <input type="file" id="fileTranscripts" class="wizard-file-input" data-preview="previewTranscripts" accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+              </div>
+
+              <!-- Upload 3: Optional Medical Fitness -->
+              <div class="upload-box" onclick="document.querySelector('#fileMedical').click();">
+                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                <div style="font-weight: 700; color: var(--primary-900);">3. Medical Fitness / HIV Report (Optional at this stage)</div>
+                <div style="font-size: 0.8rem; color: var(--neutral-500); margin-top: 0.25rem;">Can be submitted later prior to visa processing</div>
+                <div id="previewMedical" style="font-size: 0.8rem; color: var(--neutral-400); margin-top: 0.5rem;">Click to attach if already available</div>
+                <input type="file" id="fileMedical" class="wizard-file-input" data-preview="previewMedical" accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+              </div>
+            </div>
+
+            <!-- Step 5: Review & Submit -->
+            <div class="wizard-step-panel" data-step="5">
+              <h3 class="wizard-panel-title">Step 5: Review Summary & Lodge Dossier</h3>
+              <p class="wizard-panel-subtitle">Verify your submitted information carefully before final transmission to the admissions registry.</p>
+
+              <div id="reviewSummaryContainer">
+                <!-- Dynamically generated via apply.js -->
+              </div>
+
+              <div style="margin-top: 1.5rem; padding: 1.25rem; background: var(--accent-emerald-50); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-lg);">
+                <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer; font-size: 0.875rem; color: var(--neutral-800);">
+                  <input type="checkbox" id="agreeTermsCheckbox" required style="margin-top: 3px; accent-color: var(--accent-emerald-600); width: 18px; height: 18px;">
+                  <span>I declare that all submitted personal and academic credentials are authentic. I authorize Study Partners to translate and present this dossier to accredited European university admission boards.</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Wizard Footer Controls -->
+          <div class="wizard-footer">
+            <button type="button" id="btnStepPrev" class="btn btn-secondary" style="display: none;">
+              &larr; Previous Step
+            </button>
+            <div style="margin-left: auto; display: flex; gap: 1rem;">
+              <button type="button" id="btnStepNext" class="btn btn-primary">
+                Continue Next &rarr;
+              </button>
+              <button type="submit" id="btnStepSubmit" class="btn btn-primary" style="display: none; background: linear-gradient(135deg, var(--accent-emerald-600), var(--accent-emerald-700));">
+                Submit Formal Application &rarr;
+              </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Success Confirmation Modal -->
+  <div class="app-modal" id="applySuccessModal">
+    <div class="app-modal-card">
+      <div style="width: 70px; height: 70px; border-radius: 50%; background: var(--accent-emerald-50); color: var(--accent-emerald-600); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.25rem;">
+        &#10003;
+      </div>
+      <h3 style="font-size: 1.6rem; color: var(--primary-900); margin-bottom: 0.5rem;">Application Successfully Submitted!</h3>
+      <p style="color: var(--neutral-600); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem;">
+        Your dossier has been registered with the European Admissions Office. Your reference tracking number is:
+      </p>
+      
+      <div style="background: var(--neutral-100); border: 2px dashed var(--neutral-300); border-radius: var(--radius-md); padding: 0.85rem; font-family: monospace; font-size: 1.4rem; font-weight: 800; color: var(--primary-900); margin-bottom: 1.75rem;">
+        <span id="modalAppId">AFR-2026-8942</span>
+      </div>
+
+      <div style="font-size: 0.85rem; color: var(--neutral-500); margin-bottom: 2rem; line-height: 1.5;">
+        A confirmation receipt and student portal access credentials have been dispatched to your email address. Our admissions officer will contact you within 24 hours.
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; justify-content: center;">
+        <a href="login.html" class="btn btn-primary" style="flex: 1;">Access Student Portal</a>
+        <a href="index.html" class="btn btn-secondary">Return Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-block;">
+            <img src="images/logo.png" alt="Study Partners" class="brand-logo-img" style="height: 48px;">
+          </a>
+          <p style="margin-top: 0.75rem;">
+            Connecting African students to accredited European universities with transparent fees, guaranteed official study invitations, and dedicated visa support.
+          </p>
+          <div style="margin-top: 1.25rem; font-size: 0.85rem; color: var(--neutral-600); line-height: 1.6;">
+            <p>📍 <strong>5 Premium Close</strong>, Mount Pleasant Business Park, Mount Pleasant, Harare, Zimbabwe</p>
+            <p style="margin-top: 0.35rem;">📞 <strong>Zimbabwe:</strong> <a href="tel:+263773966111" style="color: var(--accent-emerald-700); font-weight: 700;">+263 773 966 111</a></p>
+            <p style="margin-top: 0.2rem;">📞 <strong>South Africa:</strong> <a href="tel:+27833454421" style="color: var(--accent-emerald-700); font-weight: 700;">+27 833 454 421</a></p>
+          </div>
+          <div class="footer-socials">
+            <a href="#" class="social-icon-btn" aria-label="Facebook">FB</a>
+            <a href="#" class="social-icon-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="social-icon-btn" aria-label="LinkedIn">IN</a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="destinations.html">Study Destinations</a></li>
+            <li><a href="degrees.html">Search Degrees & Fees</a></li>
+            <li><a href="how-it-works.html">5-Step Process</a></li>
+            <li><a href="pricing.html">Tuition & Living Costs</a></li>
+            <li><a href="stories.html">Student Stories</a></li>
+            <li><a href="apply.html">Apply Online</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Portals & Partners</h4>
+          <ul class="footer-links-list">
+            <li><a href="login.html">Student Dashboard Login</a></li>
+            <li><a href="login.html?role=agent">Authorized Agent Portal</a></li>
+            <li><a href="login.html?role=admin">University Admin Panel</a></li>
+            <li><a href="partner.html">Partner Your University</a></li>
+            <li><a href="faq.html">FAQ & Visa Guidelines</a></li>
+            <li><a href="contact.html">Contact Harare Office</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Admissions Newsletter</h4>
+          <p style="font-size: 0.85rem; color: var(--neutral-600); line-height: 1.5;">
+            Get updates on new university intakes, European admission deadlines, and visa briefing dates.
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed! Check your inbox for study guides.', 'success'); this.reset();">
+            <input type="email" class="newsletter-input" placeholder="Enter student email" required>
+            <button type="submit" class="btn btn-primary btn-sm">Join</button>
+          </form>
+          <p style="font-size: 0.72rem; color: var(--neutral-500); margin-top: 0.6rem;">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 Study Partners. All rights reserved.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" onclick="alert('Privacy policy: We respect student data strictly in compliance with data privacy standards.'); return false;">Privacy Policy</a>
+          <a href="#" onclick="alert('Terms: Study Partners facilitates official institutional admissions.'); return false;">Terms of Service</a>
+          <a href="sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        Disclaimer: Study Partners is an independent educational consultancy operating in direct liaison with accredited European State Universities and respective Ministries of Education. University tuition fees are payable directly into official State University treasury bank accounts.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action Button & Interactive Chat Popup -->
+  <button class="floating-whatsapp-btn" id="floatingWhatsAppBtn" aria-label="Chat with Admissions Counselor on WhatsApp">
+    <svg width="34" height="34" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.356.101.173.449.741.964 1.201.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.679.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+    </svg>
+    <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+  </button>
+
+  <!-- Interactive WhatsApp Popup Box -->
+  <div class="whatsapp-chat-popup" id="whatsappPopup">
+    <div class="popup-header">
+      <div class="popup-advisor">
+        <div class="advisor-avatar">SP</div>
+        <div>
+          <div class="advisor-name">Study Partners Counselor</div>
+          <div class="advisor-status"><span class="status-dot"></span> Online &bull; Direct WhatsApp</div>
+        </div>
+      </div>
+      <button class="popup-close" id="closeWhatsAppPopup" aria-label="Close Chat">&times;</button>
+    </div>
+    <div class="popup-body">
+      <div class="chat-bubble received">
+        👋 Hello! Welcome to Study Partners. Interested in studying Medicine, Engineering, or IT in Belarus or Europe?
+      </div>
+      <div class="chat-bubble received" style="font-size: 0.8rem; margin-top: -0.4rem; color: var(--neutral-600);">
+        Tap below to start a live conversation with our official admissions counselor on WhatsApp.
+      </div>
+    </div>
+    <div class="popup-footer">
+      <a href="https://wa.me/263773966111?text=Hello%20Study%20Partners%2C%20I%20would%20like%20guidance%20on%20studying%20in%20Europe" target="_blank" class="btn btn-whatsapp-direct" id="startWhatsAppChatBtn">
+        Open WhatsApp Chat &rarr;
+      </a>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/apply.js"></script>
+</body>
+</html>

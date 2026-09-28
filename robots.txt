@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /agent
+Disallow: /dashboard
+
+Sitemap: https://studypartners.co.zw/sitemap.xml

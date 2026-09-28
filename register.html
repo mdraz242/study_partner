@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | Study Partners Student & Agent Registration</title>
+  <meta name="description" content="Register an account on Study Partners to apply for European university degrees or join as an authorized educational agent.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column; background: linear-gradient(180deg, #EFFDF5 0%, #F8FAFC 50%, #EFF6FF 100%);">
+
+  <!-- Minimal Brand Header -->
+  <div style="padding: 2rem 0 1rem; text-align: center;">
+    <a href="index.html" class="brand-logo" style="display: inline-flex; align-items: center; justify-content: center;">
+      <img src="images/logo.png" alt="Study Partners" class="brand-logo-img" style="height: 54px;">
+    </a>
+  </div>
+
+  <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 2rem 1.5rem;">
+    <div style="background: var(--white); border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); width: 100%; max-width: 520px; overflow: hidden; border: 1px solid var(--neutral-200);">
+      
+      <!-- Account Type Switcher -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; background: var(--neutral-100); border-bottom: 1px solid var(--neutral-200); padding: 0.35rem;">
+        <button type="button" class="reg-type-btn active" id="btnStudentReg" style="padding: 0.75rem; border: none; background: var(--white); font-family: var(--font-heading); font-size: 0.9rem; font-weight: 700; color: var(--sp-green); border-radius: var(--radius-md); cursor: pointer;">
+          Student Account
+        </button>
+        <button type="button" class="reg-type-btn" id="btnAgentReg" style="padding: 0.75rem; border: none; background: transparent; font-family: var(--font-heading); font-size: 0.9rem; font-weight: 600; color: var(--neutral-600); border-radius: var(--radius-md); cursor: pointer;">
+          Education Agent
+        </button>
+      </div>
+
+      <div style="padding: 2.25rem;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <h2 id="regTitle" style="font-size: 1.45rem; color: var(--primary-900);">Create Student Account</h2>
+          <p id="regSubtitle" style="font-size: 0.85rem; color: var(--neutral-500); margin-top: 0.25rem;">
+            Access free counseling, university shortlisting, and live application tracking.
+          </p>
+        </div>
+
+        <form id="portalRegisterForm" onsubmit="handleRegister(event);">
+          <div class="form-group">
+            <label class="form-label" for="regFullName">Full Legal Name *</label>
+            <input type="text" id="regFullName" class="form-input" placeholder="e.g. Tendai Moyo" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="regEmail">Email Address *</label>
+              <input type="email" id="regEmail" class="form-input" placeholder="tendai@gmail.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="regPhone">Phone / WhatsApp *</label>
+              <input type="tel" id="regPhone" class="form-input" placeholder="+263 / +27..." required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="regCountry">Country of Residence *</label>
+              <select id="regCountry" class="form-select" required>
+                <option value="Zimbabwe" selected>Zimbabwe</option>
+                <option value="South Africa">South Africa</option>
+                <option value="Zambia">Zambia</option>
+                <option value="Botswana">Botswana</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Ghana">Ghana</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Other">Other Country</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="regReferral">Referral Code (Optional)</label>
+              <input type="text" id="regReferral" class="form-input" placeholder="e.g. AGENT-HARARE-01">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="regPassword">Create Secure Password *</label>
+            <input type="password" id="regPassword" class="form-input" placeholder="At least 8 characters" minlength="8" required>
+          </div>
+
+          <div style="margin-bottom: 1.25rem; font-size: 0.8rem; color: var(--neutral-600);">
+            <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer;">
+              <input type="checkbox" required style="margin-top: 3px; accent-color: var(--sp-green);">
+              <span>I agree to the Terms of Service and acknowledge that official documents will be verified under European educational standards.</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem;">
+            Complete Registration &rarr;
+          </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--neutral-600);">
+          Already have an account? 
+          <a href="login.html" style="color: var(--sp-green); font-weight: 700;">Sign in here &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer style="text-align: center; padding: 1.5rem; color: var(--neutral-500); font-size: 0.8rem;">
+    &copy; 2026 Study Partners. 5 Premium Close, Mount Pleasant, Harare. Return to <a href="index.html" style="color: var(--sp-green); font-weight: 700;">Public Homepage</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    let accountType = 'student';
+    const btnStudent = document.querySelector('#btnStudentReg');
+    const btnAgent = document.querySelector('#btnAgentReg');
+    const title = document.querySelector('#regTitle');
+    const subtitle = document.querySelector('#regSubtitle');
+
+    btnStudent.addEventListener('click', () => {
+      accountType = 'student';
+      btnStudent.style.background = 'var(--white)';
+      btnStudent.style.color = 'var(--sp-green)';
+      btnAgent.style.background = 'transparent';
+      btnAgent.style.color = 'var(--neutral-600)';
+      title.textContent = 'Create Student Account';
+      subtitle.textContent = 'Access free counseling, university shortlisting, and live application tracking.';
+    });
+
+    btnAgent.addEventListener('click', () => {
+      accountType = 'agent';
+      btnAgent.style.background = 'var(--white)';
+      btnAgent.style.color = 'var(--sp-green)';
+      btnStudent.style.background = 'transparent';
+      btnStudent.style.color = 'var(--neutral-600)';
+      title.textContent = 'Register as Authorized Agent';
+      subtitle.textContent = 'Earn student placement commissions with direct access to European admissions.';
+    });
+
+    function handleRegister(e) {
+      e.preventDefault();
+      showToast('Registration successful! Redirecting to student dashboard...', 'success');
+      setTimeout(() => {
+        window.location.href = 'index.html#portal-showcase';
+      }, 1200);
+    }
+  </script>
+</body>
+</html>
