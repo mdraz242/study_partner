@@ -94,8 +94,28 @@ function initNavbar() {
 
   const mobileNavClose = document.getElementById('mobileNavClose');
 
+  // 4. Portal navMenu to body on mobile to escape parent stacking context
+  const navPlaceholder = document.createComment('nav-menu-placeholder');
+  navMenu.parentNode.insertBefore(navPlaceholder, navMenu);
+
+  function syncNavPlacement() {
+    if (window.innerWidth <= 900) {
+      if (navMenu.parentNode !== document.body) {
+        document.body.appendChild(navMenu);
+      }
+    } else {
+      if (navPlaceholder.parentNode && navMenu.parentNode !== navPlaceholder.parentNode) {
+        navPlaceholder.parentNode.insertBefore(navMenu, navPlaceholder);
+      }
+    }
+  }
+
+  syncNavPlacement();
+  window.addEventListener('resize', syncNavPlacement);
+
   // Open & Close Menu Helpers
   function openMobileMenu() {
+    syncNavPlacement();
     navMenu.classList.add('open');
     backdrop?.classList.add('active');
     document.body.classList.add('nav-locked');
@@ -149,7 +169,7 @@ function initNavbar() {
     }
   });
 
-  // 4. Accordion Toggle for Submenus on Mobile
+  // 5. Accordion Toggle for Submenus on Mobile
   const navItems = navMenu.querySelectorAll('.nav-item');
   navItems.forEach(item => {
     const dropdown = item.querySelector('.dropdown-menu');
@@ -158,6 +178,7 @@ function initNavbar() {
       link.addEventListener('click', (e) => {
         if (window.innerWidth <= 900) {
           e.preventDefault();
+          e.stopPropagation();
           const wasOpen = item.classList.contains('dropdown-open');
           // Close other open dropdowns for a clean accordion effect
           navItems.forEach(other => {
@@ -166,21 +187,18 @@ function initNavbar() {
           item.classList.toggle('dropdown-open', !wasOpen);
         }
       });
-    } else if (link) {
-      // Regular link without dropdown: close menu upon click
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 900) {
-          closeMobileMenu();
-        }
-      });
     }
   });
 
-  // Submenu dropdown items: close menu upon click
-  navMenu.querySelectorAll('.dropdown-item').forEach(item => {
-    item.addEventListener('click', () => {
+  // Smooth link handling: close drawer after navigation triggers
+  navMenu.querySelectorAll('a').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      // If it's a dropdown accordion toggle, let accordion handler handle it
+      if (anchor.classList.contains('nav-link') && anchor.parentElement.querySelector('.dropdown-menu')) {
+        return;
+      }
       if (window.innerWidth <= 900) {
-        closeMobileMenu();
+        setTimeout(closeMobileMenu, 120);
       }
     });
   });
