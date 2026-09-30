@@ -1486,9 +1486,15 @@ body.nav-locked {
 
 .countries-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.25rem;
   margin-top: 3rem;
+}
+
+@media (max-width: 1200px) {
+  .countries-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .country-card {
