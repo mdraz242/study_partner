@@ -27,44 +27,56 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const leadRef = 'LEAD-UNI-' + Math.floor(10000 + Math.random() * 90000);
+    const submitBtn = partnerForm.querySelector('button[type="submit"]');
+    const origBtnText = submitBtn ? submitBtn.innerHTML : 'Submit';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Submitting Enquiry...';
+    }
 
-    const leadData = {
-      leadRef,
-      type: 'university_partner',
-      universityName: uniName,
-      country: country,
-      contactPerson,
-      repRole,
+    const payload = {
+      source: 'Partner University Inquiry',
+      fullName: contactPerson + (repRole ? ' (' + repRole + ')' : ''),
       email: repEmail,
       phone: repPhone,
-      targetIntake,
-      message,
-      createdAt: new Date().toISOString(),
-      status: 'new'
+      country: country,
+      destination: country,
+      program: 'Institutional Partnership',
+      schoolName: uniName,
+      intake: targetIntake,
+      message: message || 'University Partnership Inquiry'
     };
 
-    // Store in localStorage leads table (ready to bind to Supabase Postgres in Phase 2)
-    try {
-      const existingLeads = JSON.parse(localStorage.getItem('afrieuro_leads') || '[]');
-      existingLeads.push(leadData);
-      localStorage.setItem('afrieuro_leads', JSON.stringify(existingLeads));
-    } catch(err) {
-      console.warn('Storage quota', err);
-    }
+    fetch('api/submit_lead.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.json())
+    .then(data => {
+      const leadRef = data.success ? data.lead_ref : ('LEAD-UNI-' + Math.floor(10000 + Math.random() * 90000));
+      const modal = document.querySelector('#partnerSuccessModal');
+      const modalLeadRef = document.querySelector('#modalPartnerLeadRef');
+      if (modalLeadRef) modalLeadRef.textContent = leadRef;
 
-    // Success notification
-    const modal = document.querySelector('#partnerSuccessModal');
-    const modalLeadRef = document.querySelector('#modalPartnerLeadRef');
-    if (modalLeadRef) modalLeadRef.textContent = leadRef;
-
-    if (modal) {
-      modal.classList.add('active');
-    } else {
-      if (window.showToast) {
-        window.showToast(`Partnership inquiry (${leadRef}) sent successfully! Our European partnerships director will respond within 24 hours.`, 'success');
+      if (modal) {
+        modal.classList.add('active');
+      } else {
+        if (window.showToast) {
+          window.showToast(`Partnership inquiry (${leadRef}) sent successfully!`, 'success');
+        }
       }
       partnerForm.reset();
-    }
+    })
+    .catch(err => {
+      console.error(err);
+      alert('Error submitting inquiry. Please contact us on WhatsApp: +263 773 966 111.');
+    })
+    .finally(() => {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = origBtnText;
+      }
+    });
   });
 });

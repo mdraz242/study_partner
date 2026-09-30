@@ -44,7 +44,7 @@ function initNavbar() {
     const mobileHeader = document.createElement('div');
     mobileHeader.className = 'mobile-nav-header';
     mobileHeader.innerHTML = `
-      <a href="index.html" class="mobile-nav-brand" aria-label="Study Partners">
+      <a href="index.php" class="mobile-nav-brand" aria-label="Study Partners">
         <img src="images/logo.png" alt="Study Partners" class="mobile-nav-logo">
       </a>
       <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation menu">
@@ -62,13 +62,13 @@ function initNavbar() {
     mobileFooter.className = 'mobile-nav-footer';
     mobileFooter.innerHTML = `
       <div class="mobile-nav-cta">
-        <a href="apply.html" class="btn btn-primary btn-block">
+        <a href="apply.php" class="btn btn-primary btn-block">
           Apply Now
           <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
       </div>
       <div class="mobile-nav-portal">
-        <a href="login.html" class="mobile-portal-link">
+        <a href="login.php" class="mobile-portal-link">
           <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
           Student Portal Login
         </a>
@@ -204,11 +204,13 @@ function initNavbar() {
   });
 
   // Active link highlighter based on current page
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPath = window.location.pathname.split('/').pop() || 'index.php';
+  const cleanCurrent = currentPath.replace(/\.(php|html)$/, '');
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+    const href = link.getAttribute('href') || '';
+    const cleanHref = href.split('?')[0].split('#')[0].replace(/\.(php|html)$/, '');
+    if (cleanHref === cleanCurrent || ((cleanCurrent === '' || cleanCurrent === 'index') && cleanHref === 'index')) {
       link.classList.add('active');
     }
   });

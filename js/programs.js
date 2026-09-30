@@ -244,8 +244,8 @@ function initDegreesFilter() {
         </div>
 
         <div class="prog-card-footer">
-          <a href="apply.html?program=${encodeURIComponent(prog.title)}&uni=${encodeURIComponent(prog.university)}" class="btn btn-primary btn-sm" style="flex: 1;">Apply for this Program &rarr;</a>
-          <a href="contact.html?subject=${encodeURIComponent('Inquiry: ' + prog.title)}" class="btn btn-secondary btn-sm" title="Inquire on Program">Ask Advisor</a>
+          <a href="apply.php?program=${encodeURIComponent(prog.title)}&uni=${encodeURIComponent(prog.university)}" class="btn btn-primary btn-sm" style="flex: 1;">Apply for this Program &rarr;</a>
+          <a href="contact.php?subject=${encodeURIComponent('Inquiry: ' + prog.title)}" class="btn btn-secondary btn-sm" title="Inquire on Program">Ask Advisor</a>
         </div>
       </div>
     `).join('');

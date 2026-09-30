@@ -203,7 +203,7 @@ function initApplyWizard() {
   });
 
   // Final Submission
-  wizardForm.addEventListener('submit', (e) => {
+  wizardForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const agreeTerms = document.querySelector('#agreeTermsCheckbox');
     if (agreeTerms && !agreeTerms.checked) {
@@ -211,34 +211,72 @@ function initApplyWizard() {
       return;
     }
 
-    // Generate Mock Application ID
-    const randomNum = Math.floor(1000 + Math.random() * 9000);
-    const appId = `AFR-2026-${randomNum}`;
+    const submitBtn = wizardForm.querySelector('button[type="submit"]');
+    const origBtnText = submitBtn ? submitBtn.innerHTML : 'Submit';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Registering Application...';
+    }
 
-    // Store in localStorage for dashboard/preview
-    const appRecord = {
-      appId,
-      submittedAt: new Date().toISOString(),
-      studentName: document.querySelector('#appFullName')?.value,
-      email: document.querySelector('#appEmail')?.value,
+    const payload = {
+      source: 'Application Wizard',
+      fullName: document.querySelector('#appFullName')?.value.trim(),
+      email: document.querySelector('#appEmail')?.value.trim(),
+      phone: document.querySelector('#appPhone')?.value.trim(),
+      country: document.querySelector('#appNationality')?.value.trim(),
+      destination: document.querySelector('#appDestination')?.value,
       program: document.querySelector('#appProgram')?.value,
-      university: document.querySelector('#appUniversity')?.value,
-      status: 'Lead',
-      stageIndex: 0
+      level: document.querySelector('#appLevel')?.value,
+      schoolName: document.querySelector('#appSchoolName')?.value.trim(),
+      gradeGPA: document.querySelector('#appGradeGPA')?.value.trim(),
+      passportNo: document.querySelector('#appPassport')?.value.trim(),
+      intake: document.querySelector('#appIntake')?.value,
+      message: document.querySelector('#appNotes')?.value || 'Student Application Wizard Submission'
     };
-    try {
-      localStorage.setItem('afrieuro_latest_application', JSON.stringify(appRecord));
-    } catch(err) {}
 
-    // Show Confirmation Modal
-    const modal = document.querySelector('#applySuccessModal');
-    const displayAppId = document.querySelector('#modalAppId');
-    if (displayAppId) displayAppId.textContent = appId;
-    if (modal) {
-      modal.classList.add('active');
-    } else {
-      if (window.showToast) {
-        window.showToast(`Application ${appId} submitted successfully! Check your email for login credentials.`, 'success');
+    try {
+      const res = await fetch('api/submit_lead.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+
+      const appId = data.success ? data.lead_ref : ('SP-2026-' + Math.floor(1000 + Math.random() * 9000));
+
+      // Store in localStorage for dashboard/preview
+      const appRecord = {
+        appId,
+        submittedAt: new Date().toISOString(),
+        studentName: payload.fullName,
+        email: payload.email,
+        program: payload.program,
+        destination: payload.destination,
+        status: 'Lead',
+        stageIndex: 0
+      };
+      try {
+        localStorage.setItem('afrieuro_latest_application', JSON.stringify(appRecord));
+      } catch(err) {}
+
+      // Show Confirmation Modal
+      const modal = document.querySelector('#applySuccessModal');
+      const displayAppId = document.querySelector('#modalAppId');
+      if (displayAppId) displayAppId.textContent = appId;
+      if (modal) {
+        modal.classList.add('active');
+      } else {
+        if (window.showToast) {
+          window.showToast(`Application ${appId} submitted successfully! Our admissions office in Harare is reviewing your files.`, 'success');
+        }
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Network error while saving application. Please contact us on WhatsApp: +263 773 966 111.');
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = origBtnText;
       }
     }
   });

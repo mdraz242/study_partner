@@ -11,7 +11,7 @@
 
   <!-- Minimal Brand Header -->
   <div style="padding: 2rem 0 1rem; text-align: center;">
-    <a href="index.html" class="brand-logo" style="display: inline-flex; align-items: center; justify-content: center;">
+    <a href="index.php" class="brand-logo" style="display: inline-flex; align-items: center; justify-content: center;">
       <img src="images/logo.png" alt="Study Partners" class="brand-logo-img" style="height: 54px;">
     </a>
   </div>
@@ -93,14 +93,14 @@
 
         <div style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--neutral-600);">
           Already have an account? 
-          <a href="login.html" style="color: var(--sp-green); font-weight: 700;">Sign in here &rarr;</a>
+          <a href="login.php" style="color: var(--sp-green); font-weight: 700;">Sign in here &rarr;</a>
         </div>
       </div>
     </div>
   </main>
 
   <footer style="text-align: center; padding: 1.5rem; color: var(--neutral-500); font-size: 0.8rem;">
-    &copy; 2026 Study Partners. 5 Premium Close, Mount Pleasant, Harare. Return to <a href="index.html" style="color: var(--sp-green); font-weight: 700;">Public Homepage</a>
+    &copy; 2026 Study Partners. 5 Premium Close, Mount Pleasant, Harare. Return to <a href="index.php" style="color: var(--sp-green); font-weight: 700;">Public Homepage</a>
   </footer>
 
   <script src="js/main.js"></script>
@@ -135,7 +135,7 @@
       e.preventDefault();
       showToast('Registration successful! Redirecting to student dashboard...', 'success');
       setTimeout(() => {
-        window.location.href = 'index.html#portal-showcase';
+        window.location.href = 'index.php#portal-showcase';
       }, 1200);
     }
   </script>

@@ -26,7 +26,7 @@
         <a href="tel:+27833454421" class="top-notice-item">
           +27 833 454 421
         </a>
-        <a href="login.html" class="top-notice-item" style="color: var(--accent-emerald-700); font-weight: 700;">
+        <a href="login.php" class="top-notice-item" style="color: var(--accent-emerald-700); font-weight: 700;">
           Portal Login &rarr;
         </a>
       </div>
@@ -36,47 +36,47 @@
   <!-- Sticky Navbar with Dropdowns -->
   <nav class="navbar" id="siteNavbar">
     <div class="container navbar-container">
-      <a href="index.html" class="brand-logo" aria-label="Study Partners Home">
+      <a href="index.php" class="brand-logo" aria-label="Study Partners Home">
         <img src="images/logo.png" alt="Study Partners" class="brand-logo-img">
       </a>
 
       <!-- Desktop & Mobile Nav Menu -->
       <ul class="nav-menu" id="navMenu">
         <li class="nav-item">
-          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.php" class="nav-link">Home</a>
         </li>
         <li class="nav-item">
-          <a href="destinations.html" class="nav-link">Destinations</a>
+          <a href="destinations.php" class="nav-link">Destinations</a>
         </li>
         <li class="nav-item">
-          <a href="degrees.html" class="nav-link">Degrees</a>
+          <a href="degrees.php" class="nav-link">Degrees</a>
         </li>
         <li class="nav-item">
-          <a href="how-it-works.html" class="nav-link">How It Works</a>
+          <a href="how-it-works.php" class="nav-link">How It Works</a>
         </li>
         <li class="nav-item">
-          <a href="pricing.html" class="nav-link">Pricing</a>
+          <a href="pricing.php" class="nav-link">Pricing</a>
         </li>
         <li class="nav-item">
-          <a href="faq.html" class="nav-link">FAQ</a>
+          <a href="faq.php" class="nav-link">FAQ</a>
         </li>
         <li class="nav-item">
-          <a href="stories.html" class="nav-link">Student Stories</a>
+          <a href="stories.php" class="nav-link">Student Stories</a>
         </li>
         <li class="nav-item">
-          <a href="about.html" class="nav-link">About</a>
+          <a href="about.php" class="nav-link">About</a>
         </li>
         <li class="nav-item">
-          <a href="contact.html" class="nav-link active">Contact</a>
+          <a href="contact.php" class="nav-link active">Contact</a>
         </li>
         <li class="nav-item">
-          <a href="partner.html" class="nav-link" style="color: var(--sp-green); font-weight: 700;">Universities</a>
+          <a href="partner.php" class="nav-link" style="color: var(--sp-green); font-weight: 700;">Universities</a>
         </li>
       </ul>
 
       <!-- Action CTAs -->
       <div class="nav-actions">
-        <a href="apply.html" class="btn btn-primary" id="navApplyBtn">Apply Now</a>
+        <a href="apply.php" class="btn btn-primary" id="navApplyBtn">Apply Now</a>
         <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
           <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -91,7 +91,7 @@
       <h1>Contact Our Admissions Team</h1>
       <p>Have questions about European university eligibility, tuition payments, or student visa requirements? Visit our Harare head office or speak with an admissions officer today.</p>
       <div class="breadcrumbs">
-        <a href="index.html">Home</a> &rsaquo; <span>Contact</span>
+        <a href="index.php">Home</a> &rsaquo; <span>Contact</span>
       </div>
     </div>
   </header>
@@ -180,26 +180,41 @@
           <h3 style="font-size: 1.4rem; color: var(--primary-900); margin-bottom: 0.5rem;">Send an Inquiry</h3>
           <p style="font-size: 0.875rem; color: var(--neutral-500); margin-bottom: 1.5rem;">Fill out this form and a Study Partners senior educational counselor will respond within 4 hours.</p>
 
-          <form id="contactForm" onsubmit="event.preventDefault(); showToast('Thank you! Your message has been routed to our Harare admissions team.', 'success'); this.reset();">
+          <div id="contactSuccessAlert" style="display: none; background: #ECFDF5; border: 1px solid #10B981; border-radius: var(--radius-lg); padding: 1.25rem; margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <div style="font-size: 1.5rem; line-height: 1;">✅</div>
+              <div>
+                <h4 style="color: #065F46; font-size: 1.05rem; margin-bottom: 0.25rem;">Inquiry Successfully Registered!</h4>
+                <p style="color: #047857; font-size: 0.875rem; margin-bottom: 0.5rem;" id="contactSuccessMsg">
+                  Thank you! Your details have been routed directly to our Harare admissions team.
+                </p>
+                <div style="display: inline-block; background: #FFFFFF; border: 1px dashed #059669; padding: 0.35rem 0.75rem; border-radius: 6px; font-weight: 800; font-family: monospace; font-size: 1rem; color: #065F46;">
+                  Lead Reference: <span id="contactLeadRef">SP-2026-XXXX</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form id="contactForm">
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="contactName">Your Full Name *</label>
-                <input type="text" id="contactName" class="form-input" placeholder="e.g. Tendai Moyo" required>
+                <input type="text" id="contactName" name="fullName" class="form-input" placeholder="e.g. Tendai Moyo" required>
               </div>
               <div class="form-group">
                 <label class="form-label" for="contactEmail">Email Address *</label>
-                <input type="email" id="contactEmail" class="form-input" placeholder="e.g. tendai@gmail.com" required>
+                <input type="email" id="contactEmail" name="email" class="form-input" placeholder="e.g. tendai@gmail.com" required>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="contactPhone">Phone / WhatsApp Number *</label>
-                <input type="tel" id="contactPhone" class="form-input" placeholder="+263 / +27 / +234 ..." required>
+                <input type="tel" id="contactPhone" name="phone" class="form-input" placeholder="+263 / +27 / +234 ..." required>
               </div>
               <div class="form-group">
                 <label class="form-label" for="contactCountry">Country of Residence *</label>
-                <select id="contactCountry" class="form-select" required>
+                <select id="contactCountry" name="country" class="form-select" required>
                   <option value="">Select country...</option>
                   <option value="Zimbabwe" selected>Zimbabwe</option>
                   <option value="South Africa">South Africa</option>
@@ -216,24 +231,24 @@
 
             <div class="form-group">
               <label class="form-label" for="contactProgram">Intended Degree / Program of Interest</label>
-              <select id="contactProgram" class="form-select">
-                <option value="Medicine">General Medicine (MBBS / MD)</option>
-                <option value="Dentistry">Dentistry (BDS)</option>
-                <option value="Computer Science">Computer Science / Software Engineering</option>
-                <option value="AI">Artificial Intelligence & Data Systems</option>
-                <option value="Engineering">Civil / Mechanical / Aeronautical Engineering</option>
-                <option value="Business">Business Administration / MBA</option>
-                <option value="Foundation">Preparatory / Foundation Year</option>
-                <option value="Other">Other Academic Field</option>
+              <select id="contactProgram" name="program" class="form-select">
+                <option value="General Medicine (MBBS / MD)">General Medicine (MBBS / MD)</option>
+                <option value="Dentistry (BDS)">Dentistry (BDS)</option>
+                <option value="Computer Science / Software Engineering">Computer Science / Software Engineering</option>
+                <option value="Artificial Intelligence & Data Systems">Artificial Intelligence & Data Systems</option>
+                <option value="Civil / Mechanical Engineering">Civil / Mechanical / Aeronautical Engineering</option>
+                <option value="Business Administration / MBA">Business Administration / MBA</option>
+                <option value="Preparatory / Foundation Year">Preparatory / Foundation Year</option>
+                <option value="Other Academic Field">Other Academic Field</option>
               </select>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="contactMessage">Your Questions or Notes *</label>
-              <textarea id="contactMessage" class="form-textarea" rows="4" placeholder="Tell us about your educational background (O-Level, A-Level, Matric), desired start year, or any specific questions..." required></textarea>
+              <textarea id="contactMessage" name="message" class="form-textarea" rows="4" placeholder="Tell us about your educational background (O-Level, A-Level, Matric), desired start year, or any specific questions..." required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            <button type="submit" id="contactSubmitBtn" class="btn btn-primary btn-lg" style="width: 100%;">
               Send Inquiry to Admissions &rarr;
             </button>
           </form>
@@ -243,12 +258,69 @@
     </div>
   </section>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const contactForm = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('contactSubmitBtn');
+      const successAlert = document.getElementById('contactSuccessAlert');
+      const leadRefSpan = document.getElementById('contactLeadRef');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const origText = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = 'Submitting Inquiry...';
+
+          const payload = {
+            source: 'Contact Page',
+            fullName: document.getElementById('contactName')?.value.trim(),
+            email: document.getElementById('contactEmail')?.value.trim(),
+            phone: document.getElementById('contactPhone')?.value.trim(),
+            country: document.getElementById('contactCountry')?.value,
+            program: document.getElementById('contactProgram')?.value,
+            message: document.getElementById('contactMessage')?.value.trim()
+          };
+
+          try {
+            const res = await fetch('api/submit_lead.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+
+            if (data.success) {
+              if (leadRefSpan) leadRefSpan.textContent = data.lead_ref;
+              if (successAlert) {
+                successAlert.style.display = 'block';
+                successAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              }
+              if (window.showToast) {
+                window.showToast('Inquiry logged successfully with Ref: ' + data.lead_ref, 'success');
+              }
+              contactForm.reset();
+            } else {
+              alert(data.error || 'Unable to submit inquiry. Please try again or chat with us on WhatsApp.');
+            }
+          } catch (err) {
+            console.error(err);
+            alert('A network error occurred. Please contact us via WhatsApp: +263 773 966 111.');
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = origText;
+          }
+        });
+      }
+    });
+  </script>
+
   <!-- Site Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top-grid">
         <div class="footer-brand-col">
-          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-block;">
+          <a href="index.php" class="brand-logo" style="margin-bottom: 1rem; display: inline-block;">
             <img src="images/logo.png" alt="Study Partners" class="brand-logo-img" style="height: 48px;">
           </a>
           <p style="margin-top: 0.75rem;">
@@ -270,24 +342,24 @@
         <div>
           <h4 class="footer-heading">Quick Links</h4>
           <ul class="footer-links-list">
-            <li><a href="destinations.html">Study Destinations</a></li>
-            <li><a href="degrees.html">Search Degrees & Fees</a></li>
-            <li><a href="how-it-works.html">5-Step Process</a></li>
-            <li><a href="pricing.html">Tuition & Living Costs</a></li>
-            <li><a href="stories.html">Student Stories</a></li>
-            <li><a href="apply.html">Apply Online</a></li>
+            <li><a href="destinations.php">Study Destinations</a></li>
+            <li><a href="degrees.php">Search Degrees & Fees</a></li>
+            <li><a href="how-it-works.php">5-Step Process</a></li>
+            <li><a href="pricing.php">Tuition & Living Costs</a></li>
+            <li><a href="stories.php">Student Stories</a></li>
+            <li><a href="apply.php">Apply Online</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-heading">Portals & Partners</h4>
           <ul class="footer-links-list">
-            <li><a href="login.html">Student Dashboard Login</a></li>
-            <li><a href="login.html?role=agent">Authorized Agent Portal</a></li>
-            <li><a href="login.html?role=admin">University Admin Panel</a></li>
-            <li><a href="partner.html">Partner Your University</a></li>
-            <li><a href="faq.html">FAQ & Visa Guidelines</a></li>
-            <li><a href="contact.html">Contact Harare Office</a></li>
+            <li><a href="login.php">Student Dashboard Login</a></li>
+            <li><a href="login.php?role=agent">Authorized Agent Portal</a></li>
+            <li><a href="login.php?role=admin">University Admin Panel</a></li>
+            <li><a href="partner.php">Partner Your University</a></li>
+            <li><a href="faq.php">FAQ & Visa Guidelines</a></li>
+            <li><a href="contact.php">Contact Harare Office</a></li>
           </ul>
         </div>
 

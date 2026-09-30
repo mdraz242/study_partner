@@ -26,7 +26,7 @@
         <a href="tel:+27833454421" class="top-notice-item">
           +27 833 454 421
         </a>
-        <a href="login.html" class="top-notice-item" style="color: var(--accent-emerald-700); font-weight: 700;">
+        <a href="login.php" class="top-notice-item" style="color: var(--accent-emerald-700); font-weight: 700;">
           Portal Login &rarr;
         </a>
       </div>
@@ -36,47 +36,47 @@
   <!-- Sticky Navbar with Dropdowns -->
   <nav class="navbar" id="siteNavbar">
     <div class="container navbar-container">
-      <a href="index.html" class="brand-logo" aria-label="Study Partners Home">
+      <a href="index.php" class="brand-logo" aria-label="Study Partners Home">
         <img src="images/logo.png" alt="Study Partners" class="brand-logo-img">
       </a>
 
       <!-- Desktop & Mobile Nav Menu -->
       <ul class="nav-menu" id="navMenu">
         <li class="nav-item">
-          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.php" class="nav-link">Home</a>
         </li>
         <li class="nav-item">
-          <a href="destinations.html" class="nav-link">Destinations</a>
+          <a href="destinations.php" class="nav-link">Destinations</a>
         </li>
         <li class="nav-item">
-          <a href="degrees.html" class="nav-link">Degrees</a>
+          <a href="degrees.php" class="nav-link">Degrees</a>
         </li>
         <li class="nav-item">
-          <a href="how-it-works.html" class="nav-link">How It Works</a>
+          <a href="how-it-works.php" class="nav-link">How It Works</a>
         </li>
         <li class="nav-item">
-          <a href="pricing.html" class="nav-link active">Pricing</a>
+          <a href="pricing.php" class="nav-link active">Pricing</a>
         </li>
         <li class="nav-item">
-          <a href="faq.html" class="nav-link">FAQ</a>
+          <a href="faq.php" class="nav-link">FAQ</a>
         </li>
         <li class="nav-item">
-          <a href="stories.html" class="nav-link">Student Stories</a>
+          <a href="stories.php" class="nav-link">Student Stories</a>
         </li>
         <li class="nav-item">
-          <a href="about.html" class="nav-link">About</a>
+          <a href="about.php" class="nav-link">About</a>
         </li>
         <li class="nav-item">
-          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="contact.php" class="nav-link">Contact</a>
         </li>
         <li class="nav-item">
-          <a href="partner.html" class="nav-link" style="color: var(--sp-green); font-weight: 700;">Universities</a>
+          <a href="partner.php" class="nav-link" style="color: var(--sp-green); font-weight: 700;">Universities</a>
         </li>
       </ul>
 
       <!-- Action CTAs -->
       <div class="nav-actions">
-        <a href="apply.html" class="btn btn-primary" id="navApplyBtn">Apply Now</a>
+        <a href="apply.php" class="btn btn-primary" id="navApplyBtn">Apply Now</a>
         <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
           <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -91,7 +91,7 @@
       <h1>Transparent Pricing & Living Costs</h1>
       <p>Clear, honest, and predictable educational budgeting. All university tuition is paid directly into official state university accounts upon arrival.</p>
       <div class="breadcrumbs">
-        <a href="index.html">Home</a> &rsaquo; <span>Pricing</span>
+        <a href="index.php">Home</a> &rsaquo; <span>Pricing</span>
       </div>
     </div>
   </header>
@@ -151,7 +151,7 @@
             </div>
           </div>
 
-          <a href="apply.html?program=Computer%20Science" class="btn btn-secondary" style="width: 100%;">Select Engineering</a>
+          <a href="apply.php?program=Computer%20Science" class="btn btn-secondary" style="width: 100%;">Select Engineering</a>
         </div>
 
         <!-- Tier 2: Medicine (Featured) -->
@@ -181,7 +181,7 @@
             </div>
           </div>
 
-          <a href="apply.html?program=General%20Medicine" class="btn btn-primary" style="width: 100%;">Apply for MBBS</a>
+          <a href="apply.php?program=General%20Medicine" class="btn btn-primary" style="width: 100%;">Apply for MBBS</a>
         </div>
 
         <!-- Tier 3: Business & Foundation -->
@@ -210,7 +210,7 @@
             </div>
           </div>
 
-          <a href="apply.html?program=International%20Business" class="btn btn-secondary" style="width: 100%;">Select Business</a>
+          <a href="apply.php?program=International%20Business" class="btn btn-secondary" style="width: 100%;">Select Business</a>
         </div>
       </div>
     </div>
@@ -271,7 +271,7 @@
     <div class="container">
       <div class="footer-top-grid">
         <div class="footer-brand-col">
-          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-block;">
+          <a href="index.php" class="brand-logo" style="margin-bottom: 1rem; display: inline-block;">
             <img src="images/logo.png" alt="Study Partners" class="brand-logo-img" style="height: 48px;">
           </a>
           <p style="margin-top: 0.75rem;">
@@ -293,24 +293,24 @@
         <div>
           <h4 class="footer-heading">Quick Links</h4>
           <ul class="footer-links-list">
-            <li><a href="destinations.html">Study Destinations</a></li>
-            <li><a href="degrees.html">Search Degrees & Fees</a></li>
-            <li><a href="how-it-works.html">5-Step Process</a></li>
-            <li><a href="pricing.html">Tuition & Living Costs</a></li>
-            <li><a href="stories.html">Student Stories</a></li>
-            <li><a href="apply.html">Apply Online</a></li>
+            <li><a href="destinations.php">Study Destinations</a></li>
+            <li><a href="degrees.php">Search Degrees & Fees</a></li>
+            <li><a href="how-it-works.php">5-Step Process</a></li>
+            <li><a href="pricing.php">Tuition & Living Costs</a></li>
+            <li><a href="stories.php">Student Stories</a></li>
+            <li><a href="apply.php">Apply Online</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-heading">Portals & Partners</h4>
           <ul class="footer-links-list">
-            <li><a href="login.html">Student Dashboard Login</a></li>
-            <li><a href="login.html?role=agent">Authorized Agent Portal</a></li>
-            <li><a href="login.html?role=admin">University Admin Panel</a></li>
-            <li><a href="partner.html">Partner Your University</a></li>
-            <li><a href="faq.html">FAQ & Visa Guidelines</a></li>
-            <li><a href="contact.html">Contact Harare Office</a></li>
+            <li><a href="login.php">Student Dashboard Login</a></li>
+            <li><a href="login.php?role=agent">Authorized Agent Portal</a></li>
+            <li><a href="login.php?role=admin">University Admin Panel</a></li>
+            <li><a href="partner.php">Partner Your University</a></li>
+            <li><a href="faq.php">FAQ & Visa Guidelines</a></li>
+            <li><a href="contact.php">Contact Harare Office</a></li>
           </ul>
         </div>
 

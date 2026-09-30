@@ -1,3 +1,6 @@
-.DS_Store
-Thumbs.db
+# Local SQLite databases and temp files
+data/*.sqlite
+data/*.sqlite-wal
+data/*.sqlite-shm
 *.log
+.DS_Store

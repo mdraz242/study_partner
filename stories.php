@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accredited European Degrees & Programs | Study Partners</title>
-  <meta name="description" content="Browse English-taught European degrees in Medicine (MBBS), Computer Science, Software Engineering, and Business. Filter by category, study level, and language.">
+  <title>Student Stories & Reviews | Study Partners</title>
+  <meta name="description" content="Hear real stories from African students studying Medicine, Computer Science, and Engineering in accredited European universities in Belarus.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
         <a href="tel:+27833454421" class="top-notice-item">
           +27 833 454 421
         </a>
-        <a href="login.html" class="top-notice-item" style="color: var(--accent-emerald-700); font-weight: 700;">
+        <a href="login.php" class="top-notice-item" style="color: var(--accent-emerald-700); font-weight: 700;">
           Portal Login &rarr;
         </a>
       </div>
@@ -36,47 +36,47 @@
   <!-- Sticky Navbar with Dropdowns -->
   <nav class="navbar" id="siteNavbar">
     <div class="container navbar-container">
-      <a href="index.html" class="brand-logo" aria-label="Study Partners Home">
+      <a href="index.php" class="brand-logo" aria-label="Study Partners Home">
         <img src="images/logo.png" alt="Study Partners" class="brand-logo-img">
       </a>
 
       <!-- Desktop & Mobile Nav Menu -->
       <ul class="nav-menu" id="navMenu">
         <li class="nav-item">
-          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.php" class="nav-link">Home</a>
         </li>
         <li class="nav-item">
-          <a href="destinations.html" class="nav-link">Destinations</a>
+          <a href="destinations.php" class="nav-link">Destinations</a>
         </li>
         <li class="nav-item">
-          <a href="degrees.html" class="nav-link active">Degrees</a>
+          <a href="degrees.php" class="nav-link">Degrees</a>
         </li>
         <li class="nav-item">
-          <a href="how-it-works.html" class="nav-link">How It Works</a>
+          <a href="how-it-works.php" class="nav-link">How It Works</a>
         </li>
         <li class="nav-item">
-          <a href="pricing.html" class="nav-link">Pricing</a>
+          <a href="pricing.php" class="nav-link">Pricing</a>
         </li>
         <li class="nav-item">
-          <a href="faq.html" class="nav-link">FAQ</a>
+          <a href="faq.php" class="nav-link">FAQ</a>
         </li>
         <li class="nav-item">
-          <a href="stories.html" class="nav-link">Student Stories</a>
+          <a href="stories.php" class="nav-link active">Student Stories</a>
         </li>
         <li class="nav-item">
-          <a href="about.html" class="nav-link">About</a>
+          <a href="about.php" class="nav-link">About</a>
         </li>
         <li class="nav-item">
-          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="contact.php" class="nav-link">Contact</a>
         </li>
         <li class="nav-item">
-          <a href="partner.html" class="nav-link" style="color: var(--sp-green); font-weight: 700;">Universities</a>
+          <a href="partner.php" class="nav-link" style="color: var(--sp-green); font-weight: 700;">Universities</a>
         </li>
       </ul>
 
       <!-- Action CTAs -->
       <div class="nav-actions">
-        <a href="apply.html" class="btn btn-primary" id="navApplyBtn">Apply Now</a>
+        <a href="apply.php" class="btn btn-primary" id="navApplyBtn">Apply Now</a>
         <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
           <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -87,85 +87,122 @@
   <!-- Page Header -->
   <header class="inner-hero-header">
     <div class="container">
-      <span class="section-tag" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3);">Academic Catalog</span>
-      <h1>Accredited Degrees & Programs</h1>
-      <p>Search, filter, and compare English-taught undergraduate, postgraduate, and preparatory programs at recognized European state universities.</p>
+      <span class="section-tag" style="background: rgba(13, 105, 56, 0.1); color: var(--sp-green); border-color: rgba(13, 105, 56, 0.25);">Real Voices</span>
+      <h1>African Student Stories in Europe</h1>
+      <p>Discover authentic journeys from students across Zimbabwe, South Africa, Nigeria, Ghana, and Kenya thriving in European lecture halls, hospitals, and tech labs.</p>
       <div class="breadcrumbs">
-        <a href="index.html">Home</a> &rsaquo; <span>Degrees</span>
+        <a href="index.php">Home</a> &rsaquo; <span>Student Stories</span>
       </div>
     </div>
   </header>
 
-  <!-- Filterable Catalog Section -->
+  <!-- Student Stories Grid -->
   <section class="section-padding" style="background: var(--neutral-50);">
     <div class="container">
-      <!-- Filter Bar -->
-      <div class="catalog-filter-bar">
-        <div class="filters-grid">
-          <div class="form-group" style="margin-bottom: 0;">
-            <label class="form-label" for="searchProgramInput">Search Program or University</label>
-            <input type="text" id="searchProgramInput" class="form-input" placeholder="e.g. Medicine, Software, BSMU, Vitebsk...">
-          </div>
-
-          <div class="form-group" style="margin-bottom: 0;">
-            <label class="form-label" for="filterCategory">Category</label>
-            <select id="filterCategory" class="form-select">
-              <option value="all">All Categories</option>
-              <option value="medicine">Medicine & Health</option>
-              <option value="engineering">Engineering & IT</option>
-              <option value="business">Business & Economics</option>
-              <option value="foundation">Foundation / Languages</option>
-            </select>
-          </div>
-
-          <div class="form-group" style="margin-bottom: 0;">
-            <label class="form-label" for="filterLevel">Study Level</label>
-            <select id="filterLevel" class="form-select">
-              <option value="all">All Levels</option>
-              <option value="bachelor">Bachelor's / Undergraduate</option>
-              <option value="master">Master's / Postgraduate</option>
-              <option value="foundation">Preparatory / Foundation</option>
-            </select>
-          </div>
-
-          <div class="form-group" style="margin-bottom: 0;">
-            <label class="form-label" for="filterLanguage">Language</label>
-            <select id="filterLanguage" class="form-select">
-              <option value="all">All Languages</option>
-              <option value="english">English Medium</option>
-              <option value="russian">Russian / Bilingual</option>
-            </select>
-          </div>
-
-          <div>
-            <button id="resetFiltersBtn" class="btn btn-secondary" style="height: 44px; width: 100%;">Reset</button>
+      <div class="stories-grid">
+        
+        <!-- Story 1 -->
+        <div class="story-card">
+          <div class="story-quote-icon">&ldquo;</div>
+          <p class="story-text">
+            "Coming from Harare, my parents were cautious about online consultants. Study Partners in Mount Pleasant gave us complete transparency from day one. They got my BSMU Invitation Letter in 10 days, prepped me for my visa, and picked me up at Minsk Airport. Today I am in my 4th year of Medicine!"
+          </p>
+          <div class="story-student-profile">
+            <div class="story-avatar">TM</div>
+            <div class="story-meta">
+              <h5>Tendai Moyo 🇿🇼</h5>
+              <p>4th Year MBBS &bull; Belarusian State Medical Univ.</p>
+            </div>
           </div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--neutral-200);">
-          <span id="programsCount" style="font-weight: 700; color: var(--primary-900); font-size: 0.9rem;">Loading programs...</span>
-          <span style="font-size: 0.8rem; color: var(--neutral-500);">Tuition fees are official state university rates per year</span>
+        <!-- Story 2 -->
+        <div class="story-card">
+          <div class="story-quote-icon">&ldquo;</div>
+          <p class="story-text">
+            "Studying Software Engineering at BSUIR has blown away my expectations. The curriculum is purely hands-on. By year 2, I landed an internship at an IT firm in Minsk High-Tech Park building cloud APIs. The tuition of $3,600/year is unbeatable in Europe."
+          </p>
+          <div class="story-student-profile">
+            <div class="story-avatar">BM</div>
+            <div class="story-meta">
+              <h5>Brian Mwangi 🇰🇪</h5>
+              <p>3rd Year B.Sc CS &bull; BSUIR Minsk</p>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- Programs Grid (Dynamically Populated via programs.js) -->
-      <div id="programsListContainer" class="programs-grid">
-        <!-- Javascript renders program cards here -->
+        <!-- Story 3 -->
+        <div class="story-card">
+          <div class="story-quote-icon">&ldquo;</div>
+          <p class="story-text">
+            "Vitebsk is such a peaceful university town. The anatomical theater and dental simulation equipment are cutting-edge. There is a strong community of African students here. Dormitory is clean, heated 24/7, and costs only $40 a month."
+          </p>
+          <div class="story-student-profile">
+            <div class="story-avatar">SM</div>
+            <div class="story-meta">
+              <h5>Samuel Mensah 🇬🇭</h5>
+              <p>Dentistry (BDS) &bull; Vitebsk State Medical Univ.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 4 -->
+        <div class="story-card">
+          <div class="story-quote-icon">&ldquo;</div>
+          <p class="story-text">
+            "I chose BNTU for Civil Engineering because of their European Bologna accreditation. When I arrived, the Study Partners student coordinator handled my university hostel key, medical checkup, and local bank card in just 48 hours. The peace of mind is priceless."
+          </p>
+          <div class="story-student-profile">
+            <div class="story-avatar">LN</div>
+            <div class="story-meta">
+              <h5>Lerato Ndlovu 🇿🇦</h5>
+              <p>Civil Engineering &bull; BNTU Minsk</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 5 -->
+        <div class="story-card">
+          <div class="story-quote-icon">&ldquo;</div>
+          <p class="story-text">
+            "As a French speaker from Cameroon, I initially took the 9-month preparatory foundation course. It prepared me so well! Now I am studying International Business and already speaking conversational Russian and English fluently."
+          </p>
+          <div class="story-student-profile">
+            <div class="story-avatar">EK</div>
+            <div class="story-meta">
+              <h5>Emmanuel Koffi 🇨🇲</h5>
+              <p>BBA International Business &bull; BSEU</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 6 -->
+        <div class="story-card">
+          <div class="story-quote-icon">&ldquo;</div>
+          <p class="story-text">
+            "The transparent tracker in the Student Portal was the best part. Every time the University Dean or Ministry of Migration updated my file, I could see the checkmark change. 100% recommended for every serious African student."
+          </p>
+          <div class="story-student-profile">
+            <div class="story-avatar">FA</div>
+            <div class="story-meta">
+              <h5>Fatima Al-Hassan 🇳🇬</h5>
+              <p>Pharmacy &bull; VSMU Vitebsk</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Accreditation Banner -->
+  <!-- Final CTA -->
   <section class="container" style="margin-bottom: 5rem;">
-    <div style="background: var(--white); border-radius: var(--radius-2xl); padding: 3rem; border: 1px solid var(--neutral-200); box-shadow: var(--shadow-md); text-align: center;">
-      <span class="section-tag gold">Global Credential Recognition</span>
-      <h3 style="font-size: 1.8rem; color: var(--primary-900); margin: 0.5rem 0 1rem;">Are European degrees from Belarus recognized in Africa & Worldwide?</h3>
-      <p style="color: var(--neutral-600); max-width: 780px; margin: 0 auto 2rem; font-size: 1rem; line-height: 1.6;">
-        Yes. All featured institutions are State Universities accredited by their national Ministry of Education, listed in the World Directory of Medical Schools (WDOMS/FAIMER), and fully accredited by WFME. Graduates are eligible to sit for licensing exams including MDCN (Nigeria), KMPDC (Kenya), MDC (Ghana), USMLE (USA), and PLAB/GMC (UK).
-      </p>
-      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <a href="apply.html" class="btn btn-primary">Start Admission &rarr;</a>
-        <a href="https://wa.me/263773966111?text=Hello%20Study%20Partners%2C%20I%20would%20like%20guidance%20on%20studying%20in%20Europe" target="_blank" class="btn btn-whatsapp">Speak to Academic Advisor</a>
+    <div class="final-cta-section">
+      <h2>Write Your Own Success Story in Europe</h2>
+      <p>Join over 1,400 African students pursuing world-standard degrees with Study Partners.</p>
+      <div class="final-cta-actions">
+        <a href="apply.php" class="btn btn-primary btn-lg">Apply Online Now &rarr;</a>
+        <a href="https://wa.me/263773966111?text=Hello%20Study%20Partners%2C%20I%20would%20like%20guidance%20on%20studying%20in%20Europe" target="_blank" class="btn btn-whatsapp btn-lg">Talk to Admissions on WhatsApp</a>
       </div>
     </div>
   </section>
@@ -175,7 +212,7 @@
     <div class="container">
       <div class="footer-top-grid">
         <div class="footer-brand-col">
-          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-block;">
+          <a href="index.php" class="brand-logo" style="margin-bottom: 1rem; display: inline-block;">
             <img src="images/logo.png" alt="Study Partners" class="brand-logo-img" style="height: 48px;">
           </a>
           <p style="margin-top: 0.75rem;">
@@ -197,24 +234,24 @@
         <div>
           <h4 class="footer-heading">Quick Links</h4>
           <ul class="footer-links-list">
-            <li><a href="destinations.html">Study Destinations</a></li>
-            <li><a href="degrees.html">Search Degrees & Fees</a></li>
-            <li><a href="how-it-works.html">5-Step Process</a></li>
-            <li><a href="pricing.html">Tuition & Living Costs</a></li>
-            <li><a href="stories.html">Student Stories</a></li>
-            <li><a href="apply.html">Apply Online</a></li>
+            <li><a href="destinations.php">Study Destinations</a></li>
+            <li><a href="degrees.php">Search Degrees & Fees</a></li>
+            <li><a href="how-it-works.php">5-Step Process</a></li>
+            <li><a href="pricing.php">Tuition & Living Costs</a></li>
+            <li><a href="stories.php">Student Stories</a></li>
+            <li><a href="apply.php">Apply Online</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-heading">Portals & Partners</h4>
           <ul class="footer-links-list">
-            <li><a href="login.html">Student Dashboard Login</a></li>
-            <li><a href="login.html?role=agent">Authorized Agent Portal</a></li>
-            <li><a href="login.html?role=admin">University Admin Panel</a></li>
-            <li><a href="partner.html">Partner Your University</a></li>
-            <li><a href="faq.html">FAQ & Visa Guidelines</a></li>
-            <li><a href="contact.html">Contact Harare Office</a></li>
+            <li><a href="login.php">Student Dashboard Login</a></li>
+            <li><a href="login.php?role=agent">Authorized Agent Portal</a></li>
+            <li><a href="login.php?role=admin">University Admin Panel</a></li>
+            <li><a href="partner.php">Partner Your University</a></li>
+            <li><a href="faq.php">FAQ & Visa Guidelines</a></li>
+            <li><a href="contact.php">Contact Harare Office</a></li>
           </ul>
         </div>
 
@@ -282,6 +319,5 @@
   </div>
 
   <script src="js/main.js"></script>
-  <script src="js/programs.js"></script>
 </body>
 </html>

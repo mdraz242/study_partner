@@ -35,7 +35,7 @@
         <a href="tel:+27833454421" class="top-notice-item">
           +27 833 454 421
         </a>
-        <a href="login.html" class="top-notice-item" style="color: var(--accent-emerald-700); font-weight: 700;">
+        <a href="login.php" class="top-notice-item" style="color: var(--accent-emerald-700); font-weight: 700;">
           Portal Login &rarr;
         </a>
       </div>
@@ -45,29 +45,29 @@
   <!-- Sticky Navbar with Dropdowns -->
   <nav class="navbar" id="siteNavbar">
     <div class="container navbar-container">
-      <a href="index.html" class="brand-logo" aria-label="Study Partners Home">
+      <a href="index.php" class="brand-logo" aria-label="Study Partners Home">
         <img src="images/logo.png" alt="Study Partners" class="brand-logo-img">
       </a>
 
       <!-- Desktop & Mobile Nav Menu -->
       <ul class="nav-menu" id="navMenu">
         <li class="nav-item">
-          <a href="index.html" class="nav-link active">Home</a>
+          <a href="index.php" class="nav-link active">Home</a>
         </li>
         <li class="nav-item">
-          <a href="destinations.html" class="nav-link">
+          <a href="destinations.php" class="nav-link">
             Destinations
             <svg class="arrow" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </a>
           <div class="dropdown-menu">
-            <a href="destinations.html#belarus" class="dropdown-item">
+            <a href="destinations.php#belarus" class="dropdown-item">
               <div class="dropdown-item-icon">🇧🇾</div>
               <div>
                 <div class="dropdown-title">Belarus (Featured)</div>
                 <div class="dropdown-desc">Minsk, Grodno & Vitebsk Universities</div>
               </div>
             </a>
-            <a href="destinations.html#europe-expansion" class="dropdown-item">
+            <a href="destinations.php#europe-expansion" class="dropdown-item">
               <div class="dropdown-item-icon">🇪🇺</div>
               <div>
                 <div class="dropdown-title">Coming Soon Countries</div>
@@ -77,33 +77,33 @@
           </div>
         </li>
         <li class="nav-item">
-          <a href="degrees.html" class="nav-link">
+          <a href="degrees.php" class="nav-link">
             Degrees
             <svg class="arrow" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </a>
           <div class="dropdown-menu">
-            <a href="degrees.html?category=medicine" class="dropdown-item">
+            <a href="degrees.php?category=medicine" class="dropdown-item">
               <div class="dropdown-item-icon">🩺</div>
               <div>
                 <div class="dropdown-title">Medicine & Dentistry</div>
                 <div class="dropdown-desc">MBBS / MD 6-yr English medium</div>
               </div>
             </a>
-            <a href="degrees.html?category=engineering" class="dropdown-item">
+            <a href="degrees.php?category=engineering" class="dropdown-item">
               <div class="dropdown-item-icon">💻</div>
               <div>
                 <div class="dropdown-title">Computer Science & AI</div>
                 <div class="dropdown-desc">Software & Tech Engineering</div>
               </div>
             </a>
-            <a href="degrees.html?category=business" class="dropdown-item">
+            <a href="degrees.php?category=business" class="dropdown-item">
               <div class="dropdown-item-icon">📈</div>
               <div>
                 <div class="dropdown-title">Business & Economics</div>
                 <div class="dropdown-desc">BBA & MBA Programs</div>
               </div>
             </a>
-            <a href="degrees.html?category=foundation" class="dropdown-item">
+            <a href="degrees.php?category=foundation" class="dropdown-item">
               <div class="dropdown-item-icon">🎓</div>
               <div>
                 <div class="dropdown-title">Preparatory / Foundation</div>
@@ -113,28 +113,28 @@
           </div>
         </li>
         <li class="nav-item">
-          <a href="how-it-works.html" class="nav-link">How It Works</a>
+          <a href="how-it-works.php" class="nav-link">How It Works</a>
         </li>
         <li class="nav-item">
-          <a href="pricing.html" class="nav-link">Pricing</a>
+          <a href="pricing.php" class="nav-link">Pricing</a>
         </li>
         <li class="nav-item">
-          <a href="faq.html" class="nav-link">FAQ</a>
+          <a href="faq.php" class="nav-link">FAQ</a>
         </li>
         <li class="nav-item">
-          <a href="stories.html" class="nav-link">Student Stories</a>
+          <a href="stories.php" class="nav-link">Student Stories</a>
         </li>
         <li class="nav-item">
-          <a href="about.html" class="nav-link">About</a>
+          <a href="about.php" class="nav-link">About</a>
         </li>
         <li class="nav-item">
-          <a href="partner.html" class="nav-link" style="color: var(--accent-gold-600); font-weight: 700;">Partner Universities</a>
+          <a href="partner.php" class="nav-link" style="color: var(--accent-gold-600); font-weight: 700;">Partner Universities</a>
         </li>
       </ul>
 
       <!-- Navbar CTAs -->
       <div class="nav-actions">
-        <a href="apply.html" class="btn btn-primary" id="navApplyBtn">
+        <a href="apply.php" class="btn btn-primary" id="navApplyBtn">
           Apply Now
           <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
@@ -165,7 +165,7 @@
         </p>
 
         <div class="hero-cta-group">
-          <a href="apply.html" class="btn btn-primary btn-lg" id="heroStartAppBtn">
+          <a href="apply.php" class="btn btn-primary btn-lg" id="heroStartAppBtn">
             Start Application
             <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </a>
@@ -575,7 +575,7 @@
             </div>
 
             <div style="margin-top: 2rem;">
-              <a href="destinations.html" class="btn btn-primary" style="width: 100%;">
+              <a href="destinations.php" class="btn btn-primary" style="width: 100%;">
                 Explore Belarusian Universities &rarr;
               </a>
             </div>
@@ -598,7 +598,7 @@
           <p style="color: var(--neutral-600); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1rem;">
             Conducted in English at BSMU and VSMU with hands-on hospital exposure from 3rd year.
           </p>
-          <a href="degrees.html?category=medicine" class="program-cat-badge">View Medical Programs &rarr;</a>
+          <a href="degrees.php?category=medicine" class="program-cat-badge">View Medical Programs &rarr;</a>
         </div>
 
         <!-- Cat 2 -->
@@ -609,7 +609,7 @@
           <p style="color: var(--neutral-600); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1rem;">
             Taught at BSUIR, known as the Silicon Valley hub of Eastern Europe with tech park internships.
           </p>
-          <a href="degrees.html?category=engineering" class="program-cat-badge">View Tech Programs &rarr;</a>
+          <a href="degrees.php?category=engineering" class="program-cat-badge">View Tech Programs &rarr;</a>
         </div>
 
         <!-- Cat 3 -->
@@ -620,7 +620,7 @@
           <p style="color: var(--neutral-600); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1rem;">
             BNTU engineering standards accredited by FEANI and UNESCO educational frameworks.
           </p>
-          <a href="degrees.html?category=engineering" class="program-cat-badge">View Engineering &rarr;</a>
+          <a href="degrees.php?category=engineering" class="program-cat-badge">View Engineering &rarr;</a>
         </div>
 
         <!-- Cat 4 -->
@@ -631,7 +631,7 @@
           <p style="color: var(--neutral-600); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1rem;">
             European trade laws, supply chain logistics, and cross-border digital entrepreneurship at BSEU.
           </p>
-          <a href="degrees.html?category=business" class="program-cat-badge">View Business Degrees &rarr;</a>
+          <a href="degrees.php?category=business" class="program-cat-badge">View Business Degrees &rarr;</a>
         </div>
       </div>
     </div>
@@ -707,10 +707,10 @@
         Take the first step toward a prestigious, accredited medical, engineering, or business degree in Europe. Free profile evaluation with zero upfront agency fees.
       </p>
       <div class="final-cta-actions">
-        <a href="apply.html" class="btn btn-primary btn-lg" id="finalCtaApplyBtn">
+        <a href="apply.php" class="btn btn-primary btn-lg" id="finalCtaApplyBtn">
           Start Application Form &rarr;
         </a>
-        <a href="contact.html" class="btn btn-outline-white btn-lg">
+        <a href="contact.php" class="btn btn-outline-white btn-lg">
           Speak with Senior Counselor
         </a>
       </div>
@@ -722,7 +722,7 @@
     <div class="container">
       <div class="footer-top-grid">
         <div class="footer-brand-col">
-          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-block;">
+          <a href="index.php" class="brand-logo" style="margin-bottom: 1rem; display: inline-block;">
             <img src="images/logo.png" alt="Study Partners" class="brand-logo-img" style="height: 48px;">
           </a>
           <p style="margin-top: 0.75rem;">
@@ -744,24 +744,24 @@
         <div>
           <h4 class="footer-heading">Quick Links</h4>
           <ul class="footer-links-list">
-            <li><a href="destinations.html">Study Destinations</a></li>
-            <li><a href="degrees.html">Search Degrees & Fees</a></li>
-            <li><a href="how-it-works.html">5-Step Process</a></li>
-            <li><a href="pricing.html">Tuition & Living Costs</a></li>
-            <li><a href="stories.html">Student Stories</a></li>
-            <li><a href="apply.html">Apply Online</a></li>
+            <li><a href="destinations.php">Study Destinations</a></li>
+            <li><a href="degrees.php">Search Degrees & Fees</a></li>
+            <li><a href="how-it-works.php">5-Step Process</a></li>
+            <li><a href="pricing.php">Tuition & Living Costs</a></li>
+            <li><a href="stories.php">Student Stories</a></li>
+            <li><a href="apply.php">Apply Online</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-heading">Portals & Partners</h4>
           <ul class="footer-links-list">
-            <li><a href="login.html">Student Dashboard Login</a></li>
-            <li><a href="login.html?role=agent">Authorized Agent Portal</a></li>
-            <li><a href="login.html?role=admin">University Admin Panel</a></li>
-            <li><a href="partner.html">Partner Your University</a></li>
-            <li><a href="faq.html">FAQ & Visa Guidelines</a></li>
-            <li><a href="contact.html">Contact Harare Office</a></li>
+            <li><a href="login.php">Student Dashboard Login</a></li>
+            <li><a href="login.php?role=agent">Authorized Agent Portal</a></li>
+            <li><a href="login.php?role=admin">University Admin Panel</a></li>
+            <li><a href="partner.php">Partner Your University</a></li>
+            <li><a href="faq.php">FAQ & Visa Guidelines</a></li>
+            <li><a href="contact.php">Contact Harare Office</a></li>
           </ul>
         </div>
 
