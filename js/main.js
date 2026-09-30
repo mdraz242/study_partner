@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   Navbar & Navigation Logic
+   Navbar & Mobile Navigation Logic
    ========================================================================== */
 function initNavbar() {
   const navbar = document.querySelector('.navbar');
@@ -28,21 +28,162 @@ function initNavbar() {
     }
   });
 
-  // Mobile menu toggle
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      const isOpen = navMenu.classList.toggle('open');
-      mobileToggle.setAttribute('aria-expanded', isOpen);
-      const icon = mobileToggle.querySelector('svg');
-      if (icon) {
-        if (isOpen) {
-          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
-        } else {
-          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+  if (!mobileToggle || !navMenu) return;
+
+  // 1. Ensure Backdrop Element exists
+  let backdrop = document.querySelector('.nav-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    backdrop.id = 'navBackdrop';
+    document.body.appendChild(backdrop);
+  }
+
+  // 2. Ensure Mobile Drawer Header exists inside navMenu
+  if (!navMenu.querySelector('.mobile-nav-header')) {
+    const mobileHeader = document.createElement('div');
+    mobileHeader.className = 'mobile-nav-header';
+    mobileHeader.innerHTML = `
+      <a href="index.html" class="mobile-nav-brand" aria-label="Study Partners">
+        <img src="images/logo.png" alt="Study Partners" class="mobile-nav-logo">
+      </a>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation menu">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    `;
+    navMenu.prepend(mobileHeader);
+  }
+
+  // 3. Ensure Mobile Drawer Footer with CTAs & Quick Contacts exists
+  if (!navMenu.querySelector('.mobile-nav-footer')) {
+    const mobileFooter = document.createElement('div');
+    mobileFooter.className = 'mobile-nav-footer';
+    mobileFooter.innerHTML = `
+      <div class="mobile-nav-cta">
+        <a href="apply.html" class="btn btn-primary btn-block">
+          Apply Now
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+      <div class="mobile-nav-portal">
+        <a href="login.html" class="mobile-portal-link">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+          Student Portal Login
+        </a>
+      </div>
+      <div class="mobile-nav-contacts">
+        <div class="mobile-contact-title">Direct Student Support</div>
+        <a href="tel:+263773966111" class="mobile-contact-chip">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          +263 773 966 111 (Harare)
+        </a>
+        <a href="tel:+27833454421" class="mobile-contact-chip">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          +27 833 454 421 (South Africa)
+        </a>
+        <div class="mobile-contact-address">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          5 Premium Close, Mount Pleasant, Harare
+        </div>
+      </div>
+    `;
+    navMenu.appendChild(mobileFooter);
+  }
+
+  const mobileNavClose = document.getElementById('mobileNavClose');
+
+  // Open & Close Menu Helpers
+  function openMobileMenu() {
+    navMenu.classList.add('open');
+    backdrop?.classList.add('active');
+    document.body.classList.add('nav-locked');
+    mobileToggle.setAttribute('aria-expanded', 'true');
+    const icon = mobileToggle.querySelector('svg');
+    if (icon) {
+      icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+    }
+  }
+
+  function closeMobileMenu() {
+    navMenu.classList.remove('open');
+    backdrop?.classList.remove('active');
+    document.body.classList.remove('nav-locked');
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    const icon = mobileToggle.querySelector('svg');
+    if (icon) {
+      icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+    }
+  }
+
+  mobileToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (navMenu.classList.contains('open')) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
+
+  mobileNavClose?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeMobileMenu();
+  });
+
+  backdrop?.addEventListener('click', () => {
+    closeMobileMenu();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+      closeMobileMenu();
+    }
+  });
+
+  // Auto-close on resize to desktop (> 900px)
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && navMenu.classList.contains('open')) {
+      closeMobileMenu();
+    }
+  });
+
+  // 4. Accordion Toggle for Submenus on Mobile
+  const navItems = navMenu.querySelectorAll('.nav-item');
+  navItems.forEach(item => {
+    const dropdown = item.querySelector('.dropdown-menu');
+    const link = item.querySelector('.nav-link');
+    if (dropdown && link) {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          const wasOpen = item.classList.contains('dropdown-open');
+          // Close other open dropdowns for a clean accordion effect
+          navItems.forEach(other => {
+            if (other !== item) other.classList.remove('dropdown-open');
+          });
+          item.classList.toggle('dropdown-open', !wasOpen);
         }
+      });
+    } else if (link) {
+      // Regular link without dropdown: close menu upon click
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          closeMobileMenu();
+        }
+      });
+    }
+  });
+
+  // Submenu dropdown items: close menu upon click
+  navMenu.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (window.innerWidth <= 900) {
+        closeMobileMenu();
       }
     });
-  }
+  });
 
   // Active link highlighter based on current page
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
